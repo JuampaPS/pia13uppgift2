@@ -22,7 +22,7 @@ export default function Index() {
       setErrormessage("");
       setCounter(counter + innumb);
 
-      if (counter > 10) {
+      if (counter > 99) {
         setCounter(0);
       }
 
@@ -44,53 +44,65 @@ export default function Index() {
 
   return (
 
-    
-    
     <View
 
-
       style={{
-        flex: 1,
-        justifyContent: "up",
-        alignItems: "center",
-      }}
-    >
-       <Text>{counter}</Text> 
+        flex: 1, justifyContent: "up",
+        alignItems: "center"
+      }}>
 
-      {errormessage != "" &&
+      <Text style={{ fontSize: 150 }}> {counter}</Text>
 
-        <Text style={{ borderWidth: 3, width: 200, height: 80, }}>{errormessage}</Text>
-      }
-      <TextInput
-        onChangeText={setMynumber}
-        value={mynumber}
-        style={{ borderWidth: 1, width: 100 }} />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
 
+        {errormessage != "" &&
 
+          <Text style={{ borderWidth: 3, width: 200, height: 80, }}>{errormessage}</Text>
+        }
+        <TextInput
+          onChangeText={setMynumber}
+          value={mynumber}
+          style={{ borderWidth: 1, width: 100 }} />
 
-      <Button
-        onPress={dosomeplus}
-        title="PLUS"
-      />
+        <Button
+          onPress={dosomeplus}
+          title="PLUS"
+        />
 
-      
         <Button
           onPress={dosomeminus}
           title="MINUS"
         />
-      
-      {counter > 0 &&
-      <Button
-        onPress={() => { setCounter(0); }}
-        title="RESET"
-      />
-      }
 
+
+
+
+       
+
+      </View>
+
+
+
+      <View style={{ flex:1,  }}></View>
+<View>
+{counter > 0 &&
+          <Button
+            onPress={() => { setCounter(0); }}
+            title="RESET"
+            color="red"
+            
+          />
+        }
+
+
+</View>
 
     </View>
-
-
-
 
   );
 }
